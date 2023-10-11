@@ -1,4 +1,3 @@
-import json
 import logging
 import os
 
@@ -37,8 +36,8 @@ class OpenWeather:
 
         if request.status_code == 200:
             response = response[0]
-            latitude = response.get('lat')
-            longitude = response.get('lon')
+            latitude = response['lat']
+            longitude = response['lon']
             return latitude, longitude
 
         error_message = response.get('message')
@@ -69,7 +68,7 @@ class OpenWeather:
         response = request.json()
 
         if request.status_code == 200:
-            return response
+            return response['main']['temp']
 
         error_message = response.get('message')
         logger.error(error_message)
