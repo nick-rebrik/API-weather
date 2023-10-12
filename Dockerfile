@@ -11,3 +11,5 @@ RUN pip3 install -r requirements.txt
 COPY . .
 
 RUN mkdir -p ./logs && chmod 777 ./logs
+
+RUN chmod 777 ./entrypoint.sh
