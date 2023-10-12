@@ -5,14 +5,14 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from apps.weather.models import Location
-from apps.weather.permisions import XToken
+from apps.weather.permissions import XToken
 from apps.weather.serializers import LocationSerializer, WeatherDataSerializer
 
 
 class LocationViewSet(viewsets.ModelViewSet):
     queryset = Location.objects.all()
     serializer_class = LocationSerializer
-    # permission_classes = (XToken,)
+    permission_classes = (XToken,)
 
 
 class WeatherDataView(APIView):
