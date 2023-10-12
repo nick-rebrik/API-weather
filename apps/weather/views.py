@@ -24,7 +24,7 @@ class WeatherDataView(APIView):
 
         if not day:
             return Response(
-                {'error': 'Parameter "day" is required.'},
+                {'error': "Parameter 'day' is required."},
                 status=status.HTTP_400_BAD_REQUEST
             )
 
@@ -32,7 +32,7 @@ class WeatherDataView(APIView):
             day = datetime.strptime(day, '%Y-%m-%d').day
         except ValueError:
             return Response(
-                {'error': 'Invalid format for the "day" field. Use the format Y-m-d.'},
+                {'error': "Invalid format for the 'day' field. Use the format Y-m-d."},
                 status=status.HTTP_400_BAD_REQUEST
             )
 
