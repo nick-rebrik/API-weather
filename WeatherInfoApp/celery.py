@@ -14,6 +14,6 @@ app.autodiscover_tasks()
 app.conf.beat_schedule = {
     'collect_weather_data_every_hour': {
         'task': 'apps.weather.tasks.collect_weather_data',
-        'schedule': crontab(hour='*')
+        'schedule': crontab(minute='0', hour='*')
     }
 }
