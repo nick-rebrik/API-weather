@@ -1,5 +1,7 @@
 from datetime import datetime
 
+from drf_yasg import openapi
+from drf_yasg.utils import swagger_auto_schema
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -18,6 +20,13 @@ class LocationViewSet(viewsets.ModelViewSet):
 class WeatherDataView(APIView):
     permission_classes = (XToken,)
 
+    @swagger_auto_schema(
+        manual_parameters=[
+            openapi.Parameter('day', openapi.IN_QUERY, description="Day in format 'Y-m-d'",
+                              type=openapi.TYPE_STRING, required=True),
+        ],
+        responses={200: 'OK', 400: 'Bad Request'}
+    )
     def get(self, request, *args, **kwargs):
         day = request.GET.get('day')
         location = request.GET.get('location')
