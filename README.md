@@ -25,8 +25,10 @@ This project serves as a quick start for your Django application that leverages 
    ```shell
    cd API-weather
    ```
+   
+4. Create and fill in the .env file according to the example env.example
 
-4. Start Docker Compose to bring up all the containers:
+5. Start Docker Compose to bring up all the containers:
 
    ```shell
    docker-compose up -d
